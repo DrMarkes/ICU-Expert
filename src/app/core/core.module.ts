@@ -16,13 +16,8 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
   exports: [
     BrowserModule,
     BrowserAnimationsModule,
-    SharedModule,
-    ToolbarComponent,
-    SidenavComponent
-  ],
-  declarations: [
-    ToolbarComponent,
-    SidenavComponent]
+    SharedModule
+  ]
 })
 export class CoreModule {
   constructor( @Optional() @SkipSelf() parentModule: CoreModule) {

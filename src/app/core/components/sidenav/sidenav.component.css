@@ -1,0 +1,11 @@
+mat-sidenav {
+    width: 300px;
+}
+
+mat-nav-list {
+    padding: 0;
+}
+
+.active {
+    color: gold;
+}
