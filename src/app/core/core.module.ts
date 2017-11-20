@@ -4,6 +4,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { throwIfAlreadyLoaded } from './module-import-guard';
 import { SharedModule } from '../shared/shared.module';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
 
 @NgModule({
   imports: [
@@ -14,9 +16,13 @@ import { SharedModule } from '../shared/shared.module';
   exports: [
     BrowserModule,
     BrowserAnimationsModule,
-    SharedModule
+    SharedModule,
+    ToolbarComponent,
+    SidenavComponent
   ],
-  declarations: []
+  declarations: [
+    ToolbarComponent,
+    SidenavComponent]
 })
 export class CoreModule {
   constructor( @Optional() @SkipSelf() parentModule: CoreModule) {
