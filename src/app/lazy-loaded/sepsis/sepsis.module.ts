@@ -9,12 +9,23 @@ import { InfectionComponent } from './components/infection/infection.component';
 import { QSofaComponent } from './components/q-sofa/q-sofa.component';
 import { SofaComponent } from './components/sofa/sofa.component';
 import { SofaSelectComponent } from './components/sofa-select/sofa-select.component';
+import { SepsisComponent } from './components/sepsis/sepsis.component';
+import { ShockComponent } from './components/shock/shock.component';
 
 @NgModule({
   imports: [
     SharedModule,
     SepsisRoutingModule
   ],
-  declarations: [HomeComponent, DiagnosisComponent, TreatmentComponent, InfectionComponent, QSofaComponent, SofaComponent, SofaSelectComponent]
+  declarations: [
+    HomeComponent,
+    DiagnosisComponent,
+    TreatmentComponent,
+    InfectionComponent,
+    QSofaComponent,
+    SofaComponent,
+    SofaSelectComponent,
+    SepsisComponent,
+    ShockComponent]
 })
 export class SepsisModule { }

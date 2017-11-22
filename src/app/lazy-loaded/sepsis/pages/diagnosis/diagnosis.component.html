@@ -3,50 +3,31 @@
 </mat-toolbar>
 
 <div class="container">
-  <app-infection
+  <app-infection *ngIf="showInit"
     title='Пациент с подозрением на инфекцию'
     (onAnswer)="setResultInfection($event)"></app-infection>
 
   <app-q-sofa (onAnswer)="setResultQSofa($event)" *ngIf="showQSofa"></app-q-sofa>
 
-  <app-infection
-    *ngIf="showInfection"
-    title='Все ещё есть подозрение на инфекцию'
-    (onAnswer)="setResultInfectionAgain($event)"></app-infection>
+  <app-infection *ngIf="showInfection"
+                 title='Все ещё есть подозрение на инфекцию'
+                 (onAnswer)="setResultInfectionAgain($event)"></app-infection>
 
-  <app-sofa
-    *ngIf="showSofa"
-    (onAnswer)="setResultSofa($event)"></app-sofa>
+  <app-sofa *ngIf="showSofa"
+            (onAnswer)="setResultSofa($event)"></app-sofa>
 
-  <mat-card *ngIf="showSepsis">
-    <mat-card-title>
-        Сепсис
-    </mat-card-title>
-  </mat-card>
+  <app-shock *ngIf="showSepsisQuestion"
+             (result)="setShock($event)"></app-shock>
 
-  <mat-card *ngIf="showSepsis">
-      <mat-card-title>
-        Адекватная инфузионная терапия, но
-      </mat-card-title>
-    <mat-card-content>
-      <p>
-        1. Требуется введение вазопрессоров
-      </p>
-      <p>
-        2. Уровень лактата >= 2 ммоль/л
-      </p>
-    </mat-card-content>
-      <mat-card-actions>
-        <button mat-button (click)="setShock(true)">Да</button>
-        <button mat-button (click)="setShock(false)">Нет</button>
-      </mat-card-actions>
-  </mat-card>
+  <app-sepsis *ngIf="showSepsis"
+              title="Сепсис">
+  </app-sepsis>
 
-  <mat-card *ngIf="showGoodResult">
-    <mat-card-content>
-      <p>
-        Мониторинг клинического состояния, повторная оценка состояния по необходимости
-      </p>
-    </mat-card-content>
-  </mat-card>
+  <app-sepsis *ngIf="showShock"
+              title="Сепсис. Септический шок">
+  </app-sepsis>
+
+  <app-sepsis *ngIf="showGoodResult"
+              title="Мониторинг клинического состояния, повторная оценка состояния по необходимости">
+  </app-sepsis>
 </div>
