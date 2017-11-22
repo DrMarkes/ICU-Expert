@@ -1,0 +1,52 @@
+<mat-toolbar color="primary">
+  <span>Диагностика сепсиса</span>
+</mat-toolbar>
+
+<div class="container">
+  <app-infection
+    title='Пациент с подозрением на инфекцию'
+    (onAnswer)="setResultInfection($event)"></app-infection>
+
+  <app-q-sofa (onAnswer)="setResultQSofa($event)" *ngIf="showQSofa"></app-q-sofa>
+
+  <app-infection
+    *ngIf="showInfection"
+    title='Все ещё есть подозрение на инфекцию'
+    (onAnswer)="setResultInfectionAgain($event)"></app-infection>
+
+  <app-sofa
+    *ngIf="showSofa"
+    (onAnswer)="setResultSofa($event)"></app-sofa>
+
+  <mat-card *ngIf="showSepsis">
+    <mat-card-title>
+        Сепсис
+    </mat-card-title>
+  </mat-card>
+
+  <mat-card *ngIf="showSepsis">
+      <mat-card-title>
+        Адекватная инфузионная терапия, но
+      </mat-card-title>
+    <mat-card-content>
+      <p>
+        1. Требуется введение вазопрессоров
+      </p>
+      <p>
+        2. Уровень лактата >= 2 ммоль/л
+      </p>
+    </mat-card-content>
+      <mat-card-actions>
+        <button mat-button (click)="setShock(true)">Да</button>
+        <button mat-button (click)="setShock(false)">Нет</button>
+      </mat-card-actions>
+  </mat-card>
+
+  <mat-card *ngIf="showGoodResult">
+    <mat-card-content>
+      <p>
+        Мониторинг клинического состояния, повторная оценка состояния по необходимости
+      </p>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,25 @@
+<mat-card>
+  <mat-card-title>
+    SOFA
+  </mat-card-title>
+  <mat-card-content>
+    <div *ngFor="let item of items; let i=index">
+      <app-sofa-select
+        [items]="item.model"
+        [placeholder]="item.title"
+        (selectedValue)="setTotal(i, $event)"
+      ></app-sofa-select>
+    </div>
+    <div class="align-end">
+      <p class="mat-title">
+        Общий балл: {{ total }}
+      </p>
+    </div>
+  </mat-card-content>
+  <mat-card-actions class="align-end">
+    <button mat-button (click)="getSofa()">
+      Подтвердить
+    </button>
+  </mat-card-actions>
+</mat-card>
+

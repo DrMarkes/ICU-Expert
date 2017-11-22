@@ -1,0 +1,17 @@
+<mat-card>
+  <mat-card-title>
+    qSOFA
+  </mat-card-title>
+  <mat-card-content>
+    <mat-selection-list #qSofa>
+      <mat-list-option *ngFor="let qSofa of typesOfQSofa">
+        {{ qSofa }}
+      </mat-list-option>
+    </mat-selection-list>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button (click)="setQSofa(qSofa.selectedOptions.selected.length)">
+      Подтвердить
+    </button>
+  </mat-card-actions>
+</mat-card>

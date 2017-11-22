@@ -4,8 +4,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { throwIfAlreadyLoaded } from './module-import-guard';
 import { SharedModule } from '../shared/shared.module';
-import { ToolbarComponent } from './components/toolbar/toolbar.component';
-import { SidenavComponent } from './components/sidenav/sidenav.component';
 
 @NgModule({
   imports: [

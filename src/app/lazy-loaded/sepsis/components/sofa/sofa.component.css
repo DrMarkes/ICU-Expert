@@ -1,0 +1,9 @@
+mat-card {
+  width: 400px;
+  margin: 8px;
+}
+
+.align-end {
+  display: flex;
+  justify-content: flex-end;
+}

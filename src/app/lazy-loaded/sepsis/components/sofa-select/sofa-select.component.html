@@ -1,0 +1,9 @@
+<mat-form-field>
+  <mat-select placeholder="{{ placeholder }}"
+              (change)="setValue($event)">
+    <mat-option *ngFor="let item of items" [value]="item.score">
+      {{ item.description }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+

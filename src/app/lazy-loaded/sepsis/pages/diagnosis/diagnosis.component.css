@@ -1,0 +1,19 @@
+.container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+mat-card {
+  width: 400px;
+  margin: 8px;
+}
+
+mat-card-actions {
+  display: flex;
+  justify-content: flex-end;
+}

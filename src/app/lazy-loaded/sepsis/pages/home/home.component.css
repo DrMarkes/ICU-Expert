@@ -1,0 +1,19 @@
+mat-grid-list {
+    background-color: lightblue;
+}
+
+span, .mat-title {
+    font-weight: bold;
+}
+
+.content {
+    padding: 16px;
+}
+
+mat-card {
+    margin: 16px;
+}
+
+mat-card:hover {
+    cursor: pointer;
+}
