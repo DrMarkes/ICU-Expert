@@ -11,9 +11,17 @@ span, .mat-title {
 }
 
 mat-card {
-    margin: 16px;
+    margin: 8px;
 }
 
 mat-card:hover {
     cursor: pointer;
+}
+
+.button-container {
+  display: flex;
+}
+
+.button-content {
+  flex: 1;
 }

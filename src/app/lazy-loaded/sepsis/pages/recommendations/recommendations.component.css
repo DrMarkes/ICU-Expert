@@ -1,0 +1,19 @@
+mat-card {
+  margin: 8px;
+}
+
+.none-style {
+  list-style-type: none;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+mat-divider {
+  margin-bottom: 16px;
+}

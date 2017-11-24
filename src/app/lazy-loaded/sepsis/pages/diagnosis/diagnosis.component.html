@@ -3,15 +3,12 @@
 </mat-toolbar>
 
 <div class="container">
-  <app-infection *ngIf="showInit"
-    title='Пациент с подозрением на инфекцию'
-    (onAnswer)="setResultInfection($event)"></app-infection>
+  <app-infection *ngIf="showInfectionQuestion"
+                 [title]='infectionQuestion'
+                 (onAnswer)="setResultInf($event)"></app-infection>
 
-  <app-q-sofa (onAnswer)="setResultQSofa($event)" *ngIf="showQSofa"></app-q-sofa>
-
-  <app-infection *ngIf="showInfection"
-                 title='Все ещё есть подозрение на инфекцию'
-                 (onAnswer)="setResultInfectionAgain($event)"></app-infection>
+  <app-q-sofa *ngIf="showQSofa"
+              (onAnswer)="setResultQSofa($event)" ></app-q-sofa>
 
   <app-sofa *ngIf="showSofa"
             (onAnswer)="setResultSofa($event)"></app-sofa>
@@ -19,15 +16,6 @@
   <app-shock *ngIf="showSepsisQuestion"
              (result)="setShock($event)"></app-shock>
 
-  <app-sepsis *ngIf="showSepsis"
-              title="Сепсис">
-  </app-sepsis>
-
-  <app-sepsis *ngIf="showShock"
-              title="Сепсис. Септический шок">
-  </app-sepsis>
-
-  <app-sepsis *ngIf="showGoodResult"
-              title="Мониторинг клинического состояния, повторная оценка состояния по необходимости">
-  </app-sepsis>
+  <app-sepsis *ngIf="showResult"
+              [title]="result"></app-sepsis>
 </div>

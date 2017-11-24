@@ -1,0 +1,25 @@
+<div *ngIf="content$ | async as content">
+  <mat-toolbar color="primary">
+    {{ content.titlePage }}
+  </mat-toolbar>
+
+  <div class="container">
+    <mat-card *ngFor="let recommendation of content.recommendations">
+      <mat-card-title>
+        {{ recommendation.title }}
+      </mat-card-title>
+      <mat-card-content>
+        <li *ngFor="let description of recommendation.descriptions" class="none-style">
+          <mat-divider></mat-divider>
+          <p class="mat-h3 bold">{{ description.subtitle }}</p>
+          <ol>
+            <li *ngFor="let description of description.subDescriptions">
+              <p>{{ description.base }}</p>
+              <p class="mat-caption italic" *ngIf="description.note">Примечание: {{ description.note }}</p>
+            </li>
+          </ol>
+        </li>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

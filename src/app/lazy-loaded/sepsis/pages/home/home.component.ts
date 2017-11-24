@@ -17,8 +17,8 @@ export class HomeComponent implements OnInit {
     this.router.navigateByUrl('sepsis/diagnosis');
   }
 
-  goTreatment() {
-    this.router.navigateByUrl('sepsis/treatment');
+  goRecommendations() {
+    this.router.navigateByUrl('sepsis/recommendations');
   }
 
 }
