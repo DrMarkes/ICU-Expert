@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { SepsisRecommendationsService } from '../../services/sepsis-recommendations.service';
 import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
 
-import {getRecommendationsContent, getRecommendationsState, State} from '../../redux/reducers/index';
+import {getRecommendationsContent, getRecommendationsLoaded, State} from '../../redux/reducers/index';
 import * as recommendationsPageActions from '../../redux/actions/recommendations-page.actions';
 
 @Component({
@@ -13,19 +12,16 @@ import * as recommendationsPageActions from '../../redux/actions/recommendations
 })
 export class RecommendationsComponent implements OnInit {
   content$: Observable<any>;
-  contents: Observable<any>;
 
-  constructor(private service: SepsisRecommendationsService,
-              private store: Store<State>) { }
+  constructor(private store: Store<State>) { }
 
   ngOnInit() {
-    this.store.select('sepsis', 'recommendations', 'loaded').subscribe(data => {
-      if (!data) {
+    this.store.select(getRecommendationsLoaded).subscribe(loaded => {
+      if (!loaded) {
         this.store.dispatch(new recommendationsPageActions.LoadPage());
       }
     });
-    this.contents = this.store.select(getRecommendationsContent);
-    this.content$ = this.service.getContent();
+    this.content$ = this.store.select(getRecommendationsContent);
   }
 
 }

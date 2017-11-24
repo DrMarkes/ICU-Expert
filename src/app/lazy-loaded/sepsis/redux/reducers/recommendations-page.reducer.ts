@@ -4,14 +4,14 @@ export interface State {
   loaded: boolean;
   loading: boolean;
   errorMessage: string;
-  page: any;
+  content: any;
 }
 
 const initialState: State = {
   loaded: false,
   loading: false,
   errorMessage: null,
-  page: 'title'
+  content: null
 };
 
 export function reducer(state: State = initialState, action: RecommendationsPageActions.All) {
@@ -19,12 +19,10 @@ export function reducer(state: State = initialState, action: RecommendationsPage
     case RecommendationsPageActions.LOAD_PAGE:
       return { ...state, loading: true };
     case RecommendationsPageActions.LOAD_SUCCESS:
-      return { ...state, loaded: true, loading: false, page: action.payload };
+      return { ...state, loaded: true, loading: false, content: action.payload };
     case RecommendationsPageActions.LOAD_FAIL:
       return { ...state, loading: false, loaded: false, errorMessage: action.payload };
     default:
       return state;
   }
 }
-
-export const getPage = (state: State) => state.page;

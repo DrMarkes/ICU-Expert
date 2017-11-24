@@ -24,5 +24,10 @@ export const getRecommendationsState = createSelector(
 
 export const getRecommendationsContent = createSelector(
   getRecommendationsState,
-  fromRecommendations.getPage
+  state => state.content
+);
+
+export const getRecommendationsLoaded = createSelector(
+  getRecommendationsState,
+  state => state.loaded
 );
