@@ -1,6 +1,7 @@
 <div *ngIf="content$ | async as content">
   <mat-toolbar color="primary">
     {{ content.titlePage }}
+    {{ contents | async }}
   </mat-toolbar>
 
   <div class="container">

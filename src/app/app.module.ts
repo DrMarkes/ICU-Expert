@@ -1,12 +1,20 @@
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { StoreModule } from '@ngrx/store';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { SharedModule } from './shared/shared.module';
-import { CoreModule } from './core/core.module';
-import { SidenavComponent } from './core/components/sidenav/sidenav.component';
-import { ToolbarComponent } from './core/components/toolbar/toolbar.component';
-import { PneumoniaRoutingModule } from './lazy-loaded/community-acquired-pneumoni\u0430/pneumonia-routing.module';
+import { InMemoryDataService } from './server/in-memory-data.service';
+import { reducers } from './reducers/index';
 
 
 @NgModule({
@@ -16,8 +24,18 @@ import { PneumoniaRoutingModule } from './lazy-loaded/community-acquired-pneumon
     ToolbarComponent
   ],
   imports: [
-    CoreModule,
-    AppRoutingModule
+    BrowserModule,
+    BrowserAnimationsModule,
+    SharedModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }
+    ),
+    AppRoutingModule,
+    StoreModule.forRoot(reducers),
+    EffectsModule.forRoot([]),
+    StoreRouterConnectingModule,
+    StoreDevtoolsModule.instrument()
   ],
   providers: [],
   bootstrap: [AppComponent]

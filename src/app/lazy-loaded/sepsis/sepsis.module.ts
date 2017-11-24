@@ -1,4 +1,6 @@
 import { NgModule } from '@angular/core';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 
 import { HomeComponent } from './pages/home/home.component';
 import { SharedModule } from '../../shared/shared.module';
@@ -11,11 +13,16 @@ import { SofaSelectComponent } from './components/sofa-select/sofa-select.compon
 import { SepsisComponent } from './components/sepsis/sepsis.component';
 import { ShockComponent } from './components/shock/shock.component';
 import { RecommendationsComponent } from './pages/recommendations/recommendations.component';
+import { SepsisRecommendationsService } from './services/sepsis-recommendations.service';
+import { reducers } from './redux/reducers/index';
+import { RecommendationsPageEffects } from './redux/effects/recommendations-page.effects';
 
 @NgModule({
   imports: [
     SharedModule,
-    SepsisRoutingModule
+    SepsisRoutingModule,
+    StoreModule.forFeature('sepsis', reducers),
+    EffectsModule.forFeature([RecommendationsPageEffects])
   ],
   declarations: [
     HomeComponent,
@@ -27,6 +34,7 @@ import { RecommendationsComponent } from './pages/recommendations/recommendation
     SepsisComponent,
     ShockComponent,
     RecommendationsComponent
-  ]
+  ],
+  providers: [SepsisRecommendationsService]
 })
 export class SepsisModule { }
