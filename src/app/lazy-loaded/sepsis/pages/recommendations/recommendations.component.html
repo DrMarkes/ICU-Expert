@@ -1,7 +1,9 @@
 <div *ngIf="content$ | async as content">
-  <mat-toolbar color="primary">
-    {{ content.titlePage  }}
-  </mat-toolbar>
+  <div color="primary" class="toolbar">
+    <p class="mat-title">
+      {{ content.titlePage }}
+    </p>
+  </div>
 
   <div class="container">
     <mat-card *ngFor="let recommendation of content.recommendations">

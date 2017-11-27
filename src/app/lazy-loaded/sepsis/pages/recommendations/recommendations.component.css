@@ -17,3 +17,15 @@ mat-card {
 mat-divider {
   margin-bottom: 16px;
 }
+
+.toolbar {
+  width: auto;
+  min-width: 0;
+  padding: 8px;
+  background-color: #3f51b5;
+  color: rgba(255,255,255,.87);
+}
+
+.mat-title {
+  margin: 8px;
+}

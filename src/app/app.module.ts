@@ -36,7 +36,6 @@ import { reducers } from './redux/reducers/index';
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([]),
     StoreRouterConnectingModule,
-    StoreDevtoolsModule.instrument(),
     LayoutModule
   ],
   providers: [],
