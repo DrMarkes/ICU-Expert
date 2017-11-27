@@ -1,14 +1,19 @@
 <mat-sidenav-container>
-  <mat-sidenav mode="side" opened="true">
+  <mat-sidenav
+    [mode]="modeSidenav | async"
+    [opened]="showSidenav | async"
+    (openedChange)="setSidenav($event)">
     <mat-nav-list>
-          <a mat-list-item routerLink="/comm-acq-pneumonia" routerLinkActive="active">
-            <p matLine>Тяжелая внебольничная пневмония</p>
-          </a>     
-          
-          <a mat-list-item routerLink="/sepsis" routerLinkActive="active">
-            <p matLine>Сепсис-3</p>
-          </a>
-    </mat-nav-list>         
+
+      <a mat-list-item routerLink="/sepsis" routerLinkActive="active">
+        <p matLine>Сепсис-3</p>
+      </a>
+
+      <a mat-list-item routerLink="/ards" routerLinkActive="active">
+        <p matLine>ОРДС</p>
+      </a>
+    </mat-nav-list>
   </mat-sidenav>
+
   <ng-content></ng-content>
 </mat-sidenav-container>

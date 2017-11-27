@@ -11,7 +11,12 @@ const routes: Routes = [
     path: 'sepsis',
     loadChildren:
       'app/lazy-loaded/sepsis/sepsis.module#SepsisModule'
-  }
+  },
+  {
+    path: 'ards',
+    loadChildren:
+      'app/lazy-loaded/ards/ards.module#ArdsModule'
+  },
 ];
 
 @NgModule({

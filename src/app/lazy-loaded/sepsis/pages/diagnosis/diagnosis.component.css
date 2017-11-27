@@ -1,19 +1,15 @@
 .container {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-}
-
-mat-form-field {
-  width: 100%;
-}
-
-mat-card {
-  width: 400px;
-  margin: 8px;
-}
-
-mat-card-actions {
+  align-items: center;
   display: flex;
-  justify-content: flex-end;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 8px;
+}
+
+.content {
+  max-width: 400px;
+  width: 100%;
+  margin-bottom: 8px;
+  min-width: 0;
+  display: flex;
 }

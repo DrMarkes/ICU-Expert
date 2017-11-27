@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Store} from '@ngrx/store';
+
+import {getModeSidenav, getShowSidenav} from '../../redux/reducers/index';
+import * as LayoutsActions from '../../redux/actions/layouts.actions';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'app-sidenav',
@@ -6,10 +11,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidenav.component.css']
 })
 export class SidenavComponent implements OnInit {
+  showSidenav: Observable<boolean>;
+  modeSidenav: Observable<string>;
 
-  constructor() { }
+  constructor(private store: Store<any>) { }
 
   ngOnInit() {
+    this.showSidenav = this.store.select(getShowSidenav);
+    this.modeSidenav = this.store.select(getModeSidenav);
+  }
+  setSidenav(event: boolean) {
+    this.store.dispatch(new LayoutsActions.SetSidenav(event));
   }
 
 }

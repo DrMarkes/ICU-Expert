@@ -1,6 +1,6 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 
-import * as fromRoot from '../../../../reducers/index';
+import * as fromRoot from '../../../../redux/reducers/index';
 import * as fromRecommendations from './recommendations-page.reducer';
 
 export interface SepsisState {

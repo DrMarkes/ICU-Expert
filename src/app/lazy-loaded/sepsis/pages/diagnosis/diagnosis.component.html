@@ -5,17 +5,22 @@
 <div class="container">
   <app-infection *ngIf="showInfectionQuestion"
                  [title]='infectionQuestion'
-                 (onAnswer)="setResultInf($event)"></app-infection>
+                 (onAnswer)="setResultInf($event)"
+                 class="content"></app-infection>
 
   <app-q-sofa *ngIf="showQSofa"
-              (onAnswer)="setResultQSofa($event)" ></app-q-sofa>
+              (onAnswer)="setResultQSofa($event)"
+              class="content"></app-q-sofa>
 
   <app-sofa *ngIf="showSofa"
-            (onAnswer)="setResultSofa($event)"></app-sofa>
+            (onAnswer)="setResultSofa($event)"
+            class="content"></app-sofa>
 
   <app-shock *ngIf="showSepsisQuestion"
-             (result)="setShock($event)"></app-shock>
+             (result)="setShock($event)"
+             class="content"></app-shock>
 
   <app-sepsis *ngIf="showResult"
-              [title]="result"></app-sepsis>
+              [title]="result"
+              class="content"></app-sepsis>
 </div>
